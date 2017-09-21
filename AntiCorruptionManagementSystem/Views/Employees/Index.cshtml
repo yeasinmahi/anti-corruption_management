@@ -1,0 +1,69 @@
+﻿@model IEnumerable<AntiCorruptionManagementSystem.Models.Employee>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>কর্মকর্তাদের তালিকা</h2>
+
+<p>
+    @Html.ActionLink("নতুন নিবন্ধন","Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            উইং
+        </th>
+        <th>
+            সাজেকা
+        </th>
+        <th>
+            নাম
+        </th>
+        <th>
+            পদবী
+        </th>
+        <th>
+            ঠিকানা
+        </th>
+        <th>
+            কর্মকর্তার আইডি 
+        </th>
+        <th>
+            অ্যাকাউন্ট সচল ?
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Wings.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sajekas.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Designation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmployeeId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsActive)
+        </td>
+        <td>
+            @Html.ActionLink("সম্পাদন", "Edit", new { id=item.Sl }) |
+            @Html.ActionLink("বিস্তারিত", "Details", new { id=item.Sl }) |
+            @Html.ActionLink("মুছুন", "Delete", new { id=item.Sl })
+        </td>
+    </tr>
+}
+
+</table>

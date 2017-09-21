@@ -1,0 +1,33 @@
+﻿@model IEnumerable<AntiCorruptionManagementSystem.Models.Wing>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>উইং তালিকা</h2>
+
+<p>
+    @Html.ActionLink("নতুন নিবন্ধন", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            উইংয়ের নাম
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.ActionLink("সম্পাদন", "Edit", new { id=item.Sl }) |
+            @Html.ActionLink("বিস্তারিত", "Details", new { id=item.Sl }) |
+            @Html.ActionLink("মুছুন", "Delete", new { id=item.Sl })
+        </td>
+    </tr>
+}
+
+</table>

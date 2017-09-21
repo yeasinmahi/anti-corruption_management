@@ -1,0 +1,40 @@
+﻿@model AntiCorruptionManagementSystem.Models.Sajeka
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>মুছুন</h2>
+
+<h3>আপনি কি সত্যিই মুছতে চান?</h3>
+<div>
+    <h4>সাজেকা</h4> 
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            উইংয়ের নাম
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Wings.Name)
+        </dd>
+
+        <dt>
+           সাজেকার নাম
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("তালিকায় ফেরা", "Index")
+        </div>
+    }
+</div>

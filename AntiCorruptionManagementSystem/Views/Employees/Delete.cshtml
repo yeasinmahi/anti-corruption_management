@@ -1,0 +1,80 @@
+﻿@model AntiCorruptionManagementSystem.Models.Employee
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>মুছুন</h2>
+
+<h3>আপনি কি সত্যিই মুছতে চান?</h3>
+<div> 
+    <h4>কর্মকর্তা</h4>
+    <hr /> 
+    <dl class="dl-horizontal">
+        <dt>
+           উইংয়ের নাম
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Wings.Name)
+        </dd>
+
+        <dt>
+           সাজেকার নাম
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sajekas.Name)
+        </dd>
+
+        <dt>
+           কর্মকর্তার নাম
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            পদবী
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Designation)
+        </dd>
+
+        <dt>
+           ঠিকানা
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmployeeId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmployeeId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsActive)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsActive)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("তালিকায় ফেরা", "Index")
+        </div>
+    }
+</div>
