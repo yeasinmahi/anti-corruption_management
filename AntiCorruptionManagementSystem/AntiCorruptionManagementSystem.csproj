@@ -204,19 +204,22 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201709201219372_InitialCreate.cs" />
-    <Compile Include="Migrations\201709201219372_InitialCreate.Designer.cs">
-      <DependentUpon>201709201219372_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201709201240046_InitialCreate2.cs" />
-    <Compile Include="Migrations\201709201240046_InitialCreate2.Designer.cs">
-      <DependentUpon>201709201240046_InitialCreate2.cs</DependentUpon>
+    <Compile Include="Migrations\201712191244204_InitialCreate.cs" />
+    <Compile Include="Migrations\201712191244204_InitialCreate.Designer.cs">
+      <DependentUpon>201712191244204_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ACMSDbContext.cs" />
+    <Compile Include="Models\AccusedPersonInfo.cs" />
+    <Compile Include="Models\InvestigationWorkProgress.cs" />
+    <Compile Include="Models\InquiryWorkProgress.cs" />
+    <Compile Include="Models\CaseObjection.cs" />
+    <Compile Include="Models\Case.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\SubWing.cs" />
+    <Compile Include="Models\Accuser.cs" />
     <Compile Include="Models\Wing.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Sajeka.cs" />
@@ -309,11 +312,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201709201219372_InitialCreate.resx">
-      <DependentUpon>201709201219372_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201709201240046_InitialCreate2.resx">
-      <DependentUpon>201709201240046_InitialCreate2.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201712191244204_InitialCreate.resx">
+      <DependentUpon>201712191244204_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

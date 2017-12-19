@@ -13,7 +13,7 @@ namespace AntiCorruptionManagementSystem.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201709201219372_InitialCreate"; }
+            get { return "201712191244204_InitialCreate"; }
         }
         
         string IMigrationMetadata.Source
