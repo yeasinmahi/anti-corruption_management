@@ -14,7 +14,7 @@ namespace AntiCorruptionManagementSystem.Models
         public int Sl { get; set; }
 
         [Required(ErrorMessage = "Number cannot be empty")]
-        public int FileNumber { get; set; }
+        public string FileNumber { get; set; }
 
         [DataType(DataType.Date),
         DisplayFormat(DataFormatString = "{0:dd-MM-yy}",

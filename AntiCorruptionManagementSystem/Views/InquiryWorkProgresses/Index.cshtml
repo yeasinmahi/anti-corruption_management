@@ -1,0 +1,87 @@
+﻿@model IEnumerable<AntiCorruptionManagementSystem.Models.InquiryWorkProgress>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Accusers.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Employees.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sajekas.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Wings.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FileNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateofInquiryOrder)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ComplainDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CurrentStatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Remarks)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsActive)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Accusers.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Employees.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sajekas.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Wings.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FileNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateofInquiryOrder)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ComplainDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CurrentStatus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Remarks)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsActive)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Sl }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Sl }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Sl })
+        </td>
+    </tr>
+}
+
+</table>

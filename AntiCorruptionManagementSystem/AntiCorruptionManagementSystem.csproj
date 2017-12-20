@@ -196,10 +196,14 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AccusedPersonInfoesController.cs" />
+    <Compile Include="Controllers\AccusersController.cs" />
     <Compile Include="Controllers\CaseObjectionsController.cs" />
     <Compile Include="Controllers\CasesController.cs" />
     <Compile Include="Controllers\EmployeesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InquiryWorkProgressesController.cs" />
+    <Compile Include="Controllers\InvestigationWorkProgressesController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\SajekasController.cs" />
     <Compile Include="Controllers\WingsController.cs" />
@@ -225,6 +229,10 @@
     <Compile Include="Migrations\201712200628186_update_caseobejection_1.cs" />
     <Compile Include="Migrations\201712200628186_update_caseobejection_1.Designer.cs">
       <DependentUpon>201712200628186_update_caseobejection_1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712200641067_update_investigationandinquiry_1.cs" />
+    <Compile Include="Migrations\201712200641067_update_investigationandinquiry_1.Designer.cs">
+      <DependentUpon>201712200641067_update_investigationandinquiry_1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -326,6 +334,26 @@
     <Content Include="Views\CaseObjections\Details.cshtml" />
     <Content Include="Views\CaseObjections\Edit.cshtml" />
     <Content Include="Views\CaseObjections\Index.cshtml" />
+    <Content Include="Views\AccusedPersonInfoes\Create.cshtml" />
+    <Content Include="Views\AccusedPersonInfoes\Delete.cshtml" />
+    <Content Include="Views\AccusedPersonInfoes\Details.cshtml" />
+    <Content Include="Views\AccusedPersonInfoes\Edit.cshtml" />
+    <Content Include="Views\AccusedPersonInfoes\Index.cshtml" />
+    <Content Include="Views\Accusers\Create.cshtml" />
+    <Content Include="Views\Accusers\Delete.cshtml" />
+    <Content Include="Views\Accusers\Details.cshtml" />
+    <Content Include="Views\Accusers\Edit.cshtml" />
+    <Content Include="Views\Accusers\Index.cshtml" />
+    <Content Include="Views\InquiryWorkProgresses\Create.cshtml" />
+    <Content Include="Views\InquiryWorkProgresses\Delete.cshtml" />
+    <Content Include="Views\InquiryWorkProgresses\Details.cshtml" />
+    <Content Include="Views\InquiryWorkProgresses\Edit.cshtml" />
+    <Content Include="Views\InquiryWorkProgresses\Index.cshtml" />
+    <Content Include="Views\InvestigationWorkProgresses\Create.cshtml" />
+    <Content Include="Views\InvestigationWorkProgresses\Delete.cshtml" />
+    <Content Include="Views\InvestigationWorkProgresses\Details.cshtml" />
+    <Content Include="Views\InvestigationWorkProgresses\Edit.cshtml" />
+    <Content Include="Views\InvestigationWorkProgresses\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -353,6 +381,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712200628186_update_caseobejection_1.resx">
       <DependentUpon>201712200628186_update_caseobejection_1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712200641067_update_investigationandinquiry_1.resx">
+      <DependentUpon>201712200641067_update_investigationandinquiry_1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

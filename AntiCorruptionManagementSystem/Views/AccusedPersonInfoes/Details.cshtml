@@ -1,0 +1,82 @@
+﻿@model AntiCorruptionManagementSystem.Models.AccusedPersonInfo
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>AccusedPersonInfo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Cases.CaseNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cases.CaseNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Employees.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Employees.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Designation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Designation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateofCaseSubmission)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateofCaseSubmission)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CaseShortDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CaseShortDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsActive)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsActive)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Sl }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

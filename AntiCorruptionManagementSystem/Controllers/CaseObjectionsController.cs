@@ -51,7 +51,7 @@ namespace AntiCorruptionManagementSystem.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Sl,ERNumber,Name,Designation,Address,DateofObjection,ObjectionDetails,InquiryMemorandumNumber,InquiryDate,IsActive,WingId,EmployeeId")] CaseObjection caseObjection)
         {
-            if (ModelState.IsValid)
+            if (caseObjection.ERNumber!="" )
             {
                 caseObjection.IsActive = true;
                 db.CaseObjection.Add(caseObjection);
@@ -88,7 +88,7 @@ namespace AntiCorruptionManagementSystem.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Sl,ERNumber,Name,Designation,Address,DateofObjection,ObjectionDetails,InquiryMemorandumNumber,InquiryDate,IsActive,WingId,EmployeeId")] CaseObjection caseObjection)
         {
-            if (ModelState.IsValid)
+            if (caseObjection.ERNumber != "")
             {
                 db.Entry(caseObjection).State = EntityState.Modified;
                 db.SaveChanges();
