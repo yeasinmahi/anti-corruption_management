@@ -196,6 +196,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CaseObjectionsController.cs" />
+    <Compile Include="Controllers\CasesController.cs" />
     <Compile Include="Controllers\EmployeesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -208,6 +210,22 @@
     <Compile Include="Migrations\201712191244204_InitialCreate.Designer.cs">
       <DependentUpon>201712191244204_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712200516271_update_replace_SubwingstoSajeka.cs" />
+    <Compile Include="Migrations\201712200516271_update_replace_SubwingstoSajeka.Designer.cs">
+      <DependentUpon>201712200516271_update_replace_SubwingstoSajeka.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712200613083_update_casenumber.cs" />
+    <Compile Include="Migrations\201712200613083_update_casenumber.Designer.cs">
+      <DependentUpon>201712200613083_update_casenumber.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712200623497_update_caseobejection.cs" />
+    <Compile Include="Migrations\201712200623497_update_caseobejection.Designer.cs">
+      <DependentUpon>201712200623497_update_caseobejection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712200628186_update_caseobejection_1.cs" />
+    <Compile Include="Migrations\201712200628186_update_caseobejection_1.Designer.cs">
+      <DependentUpon>201712200628186_update_caseobejection_1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ACMSDbContext.cs" />
@@ -218,7 +236,6 @@
     <Compile Include="Models\Case.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\SubWing.cs" />
     <Compile Include="Models\Accuser.cs" />
     <Compile Include="Models\Wing.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -299,6 +316,16 @@
     <Content Include="Views\Employees\Details.cshtml" />
     <Content Include="Views\Employees\Edit.cshtml" />
     <Content Include="Views\Employees\Index.cshtml" />
+    <Content Include="Views\Cases\Create.cshtml" />
+    <Content Include="Views\Cases\Delete.cshtml" />
+    <Content Include="Views\Cases\Details.cshtml" />
+    <Content Include="Views\Cases\Edit.cshtml" />
+    <Content Include="Views\Cases\Index.cshtml" />
+    <Content Include="Views\CaseObjections\Create.cshtml" />
+    <Content Include="Views\CaseObjections\Delete.cshtml" />
+    <Content Include="Views\CaseObjections\Details.cshtml" />
+    <Content Include="Views\CaseObjections\Edit.cshtml" />
+    <Content Include="Views\CaseObjections\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -314,6 +341,18 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201712191244204_InitialCreate.resx">
       <DependentUpon>201712191244204_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712200516271_update_replace_SubwingstoSajeka.resx">
+      <DependentUpon>201712200516271_update_replace_SubwingstoSajeka.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712200613083_update_casenumber.resx">
+      <DependentUpon>201712200613083_update_casenumber.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712200623497_update_caseobejection.resx">
+      <DependentUpon>201712200623497_update_caseobejection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712200628186_update_caseobejection_1.resx">
+      <DependentUpon>201712200628186_update_caseobejection_1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

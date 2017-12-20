@@ -25,14 +25,14 @@ namespace AntiCorruptionManagementSystem.Models
         [Required(ErrorMessage = "Employee Id cannot be empty")]
         public string EmployeeId { get; set; }
 
-        [Required(ErrorMessage = "IsActive cannot be empty")]
+        
         public bool IsActive { get; set; }
 
-        [Required(ErrorMessage = "WingId cannot be empty")]
+        [Required(ErrorMessage = "Wing cannot be empty")]
         [ForeignKey("Wings")]
         public int WingId { get; set; }
 
-        [Required(ErrorMessage = "SajekaId cannot be empty")]
+        [Required(ErrorMessage = "Sajeka cannot be empty")]
         [ForeignKey("Sajekas")]
         public int SajekaId { get; set; }
 

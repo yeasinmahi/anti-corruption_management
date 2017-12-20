@@ -17,7 +17,6 @@ namespace AntiCorruptionManagementSystem.Models
         }
 
         public DbSet<Wing> Wing { get; set; }
-        public DbSet<SubWing> SubWing { get; set; }
         public DbSet<Sajeka> Sajeka { get; set; }
         public DbSet<Employee> Employee { get; set; }
 

@@ -29,15 +29,14 @@ namespace AntiCorruptionManagementSystem.Models
         
         [Required(ErrorMessage = "Objection Details cannot be empty")]
         public string CaseShortDescription { get; set; }
-
-        [Required(ErrorMessage = "IsActive cannot be empty")]
+        
         public bool IsActive { get; set; }
 
-        [Required(ErrorMessage = "CaseId cannot be empty")]
+        [Required(ErrorMessage = "Case cannot be empty")]
         [ForeignKey("Cases")]
         public int CaseId { get; set; }
 
-        [Required(ErrorMessage = "EmployeeId cannot be empty")]
+        [Required(ErrorMessage = "Employee cannot be empty")]
         [ForeignKey("Employees")]
         public int EmployeeId { get; set; }
 

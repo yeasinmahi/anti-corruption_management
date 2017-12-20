@@ -14,7 +14,7 @@ namespace AntiCorruptionManagementSystem.Models
         public int Sl { get; set; }
 
         [Required(ErrorMessage = "Number cannot be empty")]
-        public int ERNumber { get; set; }
+        public string ERNumber { get; set; }
 
         [Required(ErrorMessage = "Name cannot be empty")]
         public string Name { get; set; }
@@ -34,21 +34,21 @@ namespace AntiCorruptionManagementSystem.Models
         public string ObjectionDetails { get; set; }
 
         [Required(ErrorMessage = "Number cannot be empty")]
-        public int InquiryMemorandumNumber { get; set; }
+        public string InquiryMemorandumNumber { get; set; }
 
         [DataType(DataType.Date),
         DisplayFormat(DataFormatString = "{0:dd-MM-yy}",
         ApplyFormatInEditMode = true)]
         public DateTime InquiryDate { get; set; }
 
-        [Required(ErrorMessage = "IsActive cannot be empty")]
+        
         public bool IsActive { get; set; }
 
-        [Required(ErrorMessage = "WingId cannot be empty")]
+        [Required(ErrorMessage = "Wing cannot be empty")]
         [ForeignKey("Wings")]
         public int WingId { get; set; }
 
-        [Required(ErrorMessage = "EmployeeId cannot be empty")]
+        [Required(ErrorMessage = "Employee cannot be empty")]
         [ForeignKey("Employees")]
         public int EmployeeId { get; set; }
 

@@ -13,7 +13,7 @@ namespace AntiCorruptionManagementSystem.Models
         [Key]
         public int Sl { get; set; }
 
-        [Required(ErrorMessage = "WingId cannot be empty")]
+        [Required(ErrorMessage = "Wing cannot be empty")]
         [ForeignKey("Wings")]
         public int WingId { get; set; }
 
