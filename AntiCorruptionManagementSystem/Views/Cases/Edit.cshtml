@@ -4,7 +4,7 @@
     ViewBag.Title = "Edit";
 }
 
-<h2>Edit</h2>
+<h2>নিবন্ধন সম্পাদনা</h2>
 
 
 @using (Html.BeginForm())
@@ -12,14 +12,14 @@
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>Case</h4>
+        <h2>মামলার বিস্তারিত তথ্যের সম্পাদন</h2>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.IsActive)
         @Html.HiddenFor(model => model.Sl)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.WingId, "WingId", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.WingId, "উইং এর নাম", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("WingId", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.WingId, "", new { @class = "text-danger" })
@@ -27,7 +27,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.SajekaId, "SajekaId", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.SajekaId, "সজেকার নাম", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("SajekaId", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.SajekaId, "", new { @class = "text-danger" })
@@ -35,7 +35,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.EmployeeId, "EmployeeId", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.EmployeeId, "কর্মকর্তার নাম", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("EmployeeId", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.EmployeeId, "", new { @class = "text-danger" })
@@ -43,7 +43,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.CaseNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.CaseNumber, "মামলার নম্বর", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.CaseNumber, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.CaseNumber, "", new { @class = "text-danger" })
@@ -51,7 +51,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.CaseDate, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.CaseDate, "মামলার তারিখ", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.CaseDate, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.CaseDate, "", new { @class = "text-danger" })
@@ -59,7 +59,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Description, "মামলার সংক্ষিপ্ত বিবরণ", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
@@ -67,7 +67,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.DateofIOTaken, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.DateofIOTaken, "আই.ও কর্তৃক মামলা তদন্ত গ্রহনের তারিখ", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.DateofIOTaken, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.DateofIOTaken, "", new { @class = "text-danger" })
@@ -75,7 +75,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.ProgressDetails, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.ProgressDetails, "তদন্ত প্রতিবেদনের জমাদানের হালনাগাদ অগ্রগতি", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.ProgressDetails, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.ProgressDetails, "", new { @class = "text-danger" })
@@ -83,7 +83,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Remarks, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Remarks, "মন্তব্য", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Remarks, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Remarks, "", new { @class = "text-danger" })
@@ -104,12 +104,12 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Update" class="btn btn-default" />
+                <input type="submit" value="সম্পাদন " class="btn btn-default" />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("তালিকায় ফেরা", "Index")
 </div>

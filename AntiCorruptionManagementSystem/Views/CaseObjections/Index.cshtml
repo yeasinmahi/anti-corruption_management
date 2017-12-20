@@ -7,39 +7,39 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("নতুন নিবন্ধন", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Employees.Name)
+            কর্মকর্তার নাম
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Wings.Name)
+            উইং এর নাম
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ERNumber)
+           ই আর নং
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Name)
+           অভিযুক্তের নাম
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Designation)
+           পদবী 
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Address)
+            ঠিকানা
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.DateofObjection)
+           অভিযোগের তারিখ 
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ObjectionDetails)
+            
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.InquiryMemorandumNumber)
+            প্রধান কার্যালয় হতে অনুসন্ধানের অনুমতি প্রদানের স্মারক নং
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.InquiryDate)
+            অনুসন্ধানের অনুমতি প্রদানের তারিখ
         </th>
         <th>
             @Html.DisplayNameFor(model => model.IsActive)
@@ -83,9 +83,9 @@
             @Html.DisplayFor(modelItem => item.IsActive)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Sl }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Sl }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Sl })
+            @Html.ActionLink("সম্পাদন", "Edit", new { id=item.Sl }) |
+            @Html.ActionLink("বিস্তারিত", "Details", new { id=item.Sl }) |
+            @Html.ActionLink("মুছুন", "Delete", new { id=item.Sl })
         </td>
     </tr>
 }

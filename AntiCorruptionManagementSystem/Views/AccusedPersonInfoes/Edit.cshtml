@@ -4,20 +4,20 @@
     ViewBag.Title = "Edit";
 }
 
-<h2>Edit</h2>
+<h2>সম্পাদন</h2>
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>AccusedPersonInfo</h4>
+        <h4>তদন্তধিন মামলার আসামির তথ্য</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.Sl)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Name, "অভিযুক্তের নাম", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
@@ -25,7 +25,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Designation, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Designation,"পদবী", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Designation, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Designation, "", new { @class = "text-danger" })
@@ -33,7 +33,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Address,"ঠিকানা্‌", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
@@ -41,7 +41,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.DateofCaseSubmission, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.DateofCaseSubmission, "মামলার তারিখ", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.DateofCaseSubmission, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.DateofCaseSubmission, "", new { @class = "text-danger" })
@@ -49,7 +49,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.CaseShortDescription, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.CaseShortDescription, "মামলার সংক্ষিপ্ত বিবরণ", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.CaseShortDescription, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.CaseShortDescription, "", new { @class = "text-danger" })
@@ -67,7 +67,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.CaseId, "CaseId", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.CaseId, "মামলার আই ডি", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("CaseId", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.CaseId, "", new { @class = "text-danger" })
@@ -75,7 +75,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.EmployeeId, "EmployeeId", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.EmployeeId, "কর্মকর্তার নাম", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("EmployeeId", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.EmployeeId, "", new { @class = "text-danger" })
@@ -84,12 +84,12 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" value="সম্পাদন" class="btn btn-default" />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("তালিকায় ফেরা", "Index")
 </div>

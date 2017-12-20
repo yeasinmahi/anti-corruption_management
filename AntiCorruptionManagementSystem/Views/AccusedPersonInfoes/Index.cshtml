@@ -4,33 +4,33 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>মামলার বিস্তারিত তথ্যের রিপোর্ট</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("নতুন নিবন্ধন", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Cases.CaseNumber)
+            কর্মকর্তার নাম
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Employees.Name)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Name)
+            অভিযুক্তের নাম 
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Designation)
+            পদবী
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Address)
+            ঠিকানা
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.DateofCaseSubmission)
+            মামলার তারিখ
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CaseShortDescription)
+            মামলার সংক্ষিপ্ত বিবরণ
         </th>
         <th>
             @Html.DisplayNameFor(model => model.IsActive)
@@ -65,9 +65,9 @@
             @Html.DisplayFor(modelItem => item.IsActive)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Sl }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Sl }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Sl })
+            @Html.ActionLink("সম্পাদন", "Edit", new { id=item.Sl }) |
+            @Html.ActionLink("বিস্তারিত", "Details", new { id=item.Sl }) |
+            @Html.ActionLink("মুছুন", "Delete", new { id=item.Sl })
         </td>
     </tr>
 }

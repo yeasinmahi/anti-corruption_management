@@ -4,22 +4,22 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>বিস্তারিত</h2>
 
 <div>
-    <h4>CaseObjection</h4>
+    <h4>মামলার অভিযোগ</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Employees.Name)
-        </dt>
+            কর্মকর্তার নাম
+        </dt> 
 
         <dd>
             @Html.DisplayFor(model => model.Employees.Name)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Wings.Name)
+            উইং এর নাম
         </dt>
 
         <dd>
@@ -27,7 +27,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.ERNumber)
+            ই আর নং
         </dt>
 
         <dd>
@@ -35,7 +35,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Name)
+            অভিযুক্তের নাম
         </dt>
 
         <dd>
@@ -43,7 +43,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Designation)
+            পদবী
         </dt>
 
         <dd>
@@ -51,7 +51,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Address)
+            ঠিকানা
         </dt>
 
         <dd>
@@ -59,7 +59,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.DateofObjection)
+            অভিযোগের তারিখ
         </dt>
 
         <dd>
@@ -67,7 +67,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.ObjectionDetails)
+            অভিযোগের সংক্ষিপ্ত বিবরণ
         </dt>
 
         <dd>
@@ -75,7 +75,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.InquiryMemorandumNumber)
+            প্রধান কার্যালয় হতে অনুসন্ধানের অনুমতি প্রদানের স্মারক নং
         </dt>
 
         <dd>
@@ -83,7 +83,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.InquiryDate)
+            অনুসন্ধানের অনুমতি প্রদানের তারিখ
         </dt>
 
         <dd>
@@ -101,6 +101,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Sl }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("সম্পাদন", "Edit", new { id = Model.Sl }) |
+    @Html.ActionLink("তালিকায় ফেরা", "Index")
 </p>

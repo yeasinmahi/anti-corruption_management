@@ -4,14 +4,14 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>বিস্তারিত</h2>
 
 <div>
-    <h4>Case</h4>
+    <h4>মামলার বিস্তারিত তথ্যের বিবরণ</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Employees.Name)
+            কর্মকর্তার নাম
         </dt>
 
         <dd>
@@ -19,7 +19,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Sajekas.Name)
+            সজেকা এর নাম 
         </dt>
 
         <dd>
@@ -27,7 +27,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Wings.Name)
+            উইং এর নাম
         </dt>
 
         <dd>
@@ -35,7 +35,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.CaseNumber)
+            মামলার নম্বর
         </dt>
 
         <dd>
@@ -43,7 +43,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.CaseDate)
+            মামলার তারিখ
         </dt>
 
         <dd>
@@ -51,7 +51,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Description)
+            মামলার সংক্ষিপ্ত বিবরণ 
         </dt>
 
         <dd>
@@ -59,7 +59,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.DateofIOTaken)
+            আই.ও কর্তৃক মামলা তদন্ত গ্রহনের তারিখ
         </dt>
 
         <dd>
@@ -67,7 +67,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.ProgressDetails)
+            তদন্ত প্রতিবেদনের জমাদানের হালনাগাদ অগ্রগতি
         </dt>
 
         <dd>
@@ -75,7 +75,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Remarks)
+            মন্তব্য
         </dt>
 
         <dd>
@@ -93,6 +93,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Sl }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Edit", "সম্পাদন", new { id = Model.Sl }) |
+    @Html.ActionLink("তালিকায় ফেরা", "Index")
 </p>

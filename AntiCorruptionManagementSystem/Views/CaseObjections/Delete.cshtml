@@ -1,18 +1,18 @@
 ﻿@model AntiCorruptionManagementSystem.Models.CaseObjection
 
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Title = "মুছুন";
 }
 
-<h2>Delete</h2>
+<h2>মুছুন</h2>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>আপনি কি সত্যিই মুছতে চান?</h3>
 <div>
-    <h4>CaseObjection</h4>
+    <h4>মামলার অভিযোগ</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Employees.Name)
+            কর্মকর্তার নাম
         </dt>
 
         <dd>
@@ -20,7 +20,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Wings.Name)
+            উইং এর নাম
         </dt>
 
         <dd>
@@ -28,7 +28,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.ERNumber)
+            ই আর নং
         </dt>
 
         <dd>
@@ -36,7 +36,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Name)
+            অভিযুক্তের নাম
         </dt>
 
         <dd>
@@ -44,7 +44,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Designation)
+            পদবী
         </dt>
 
         <dd>
@@ -52,7 +52,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Address)
+            ঠিকানা 
         </dt>
 
         <dd>
@@ -60,7 +60,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.DateofObjection)
+            অভিযোগের তারিখ 
         </dt>
 
         <dd>
@@ -68,7 +68,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.ObjectionDetails)
+            অভিযোগের সংক্ষিপ্ত বিবরণ
         </dt>
 
         <dd>
@@ -76,7 +76,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.InquiryMemorandumNumber)
+            প্রধান কার্যালয় হতে অনুসন্ধানের অনুমতি প্রদানের স্মারক নং
         </dt>
 
         <dd>
@@ -84,7 +84,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.InquiryDate)
+            অনুসন্ধানের অনুমতি প্রদানের তারিখ
         </dt>
 
         <dd>
@@ -105,8 +105,8 @@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+            <input type="submit" value="মুছুন" class="btn btn-default" /> |
+            @Html.ActionLink("তালিকায় ফেরা", "Index")
         </div>
     }
 </div>
