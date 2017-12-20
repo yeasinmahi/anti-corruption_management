@@ -1,0 +1,111 @@
+﻿@{
+    ViewBag.Title = "Investigation";
+}
+<header class="panel_header">
+    <h2 class="title pull-left">Investigation</h2>
+    <div class="actions panel_actions pull-right">
+        <i class="box_toggle fa fa-chevron-down"></i>
+    </div>
+</header>
+<br /> <br />
+@using (Html.BeginForm("InvestigationProgressReportView", "InvestigationWorkProgresses"))
+{
+    <div class="row">
+        <div class="col-md-4" style="margin-left:3%">
+            <div class="form-group">
+                <label class="form-label" for="wingId">Wing Name:</label>
+                <div class="controls">
+                    @Html.DropDownList("WingId", null, "--select--", htmlAttributes: new { @class = "form-control", style = "width:100%", @name = "WingName" })
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-4" style="margin-left:3%">
+            <div class="form-group">
+                <label class="form-label" for="sajekaId">Sajeka Name:</label>
+                <div class="controls">
+                    @Html.DropDownList("SajekaId", null, "--select--", htmlAttributes: new { @class = "form-control", style = "width:100%", @name = "SajekaName" })
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-4" style="margin-left:3%">
+            <div class="form-group">
+                <label class="form-label" for="employeeId">Employee Name:</label>
+                <div class="controls">
+                    @Html.DropDownList("EmployeeId", null, "--select--", htmlAttributes: new { @class = "form-control", style = "width:100%", @name = "EmployeeName" })
+                </div>
+            </div>
+
+        </div>
+        <div class="col-xs-2" style="margin-left:45%">
+            <button type="submit" class="btn btn-success">Submit</button>
+        </div>
+    </div>
+
+
+    <div class="content-body">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="table-responsive" data-pattern="priority-columns">
+                    @if (Model.Count > 0)
+                    {
+                        if (ViewBag.Status != null)
+                        {
+                           
+
+                            <table cellspacing="0" id="tech-companies-1" class="table table-small-font table-bordered table-striped">
+
+                                <thead>
+                                    <tr>
+                                        <th>অনুসন্ধান শুরুর তারিখ</th>
+                                        <th> উইং এর নাম</th>
+                                        <th>কর্মকর্তার নাম</th>
+                                        <th>ফাইল নম্বর</th>
+                                        <th>অভিযোগকারীর নাম</th>
+
+                                        <th>মামলার বিস্তারিত</th>
+                                        <th>মামলার বর্তমান অবস্থা</th>
+                                        <th>১৫ কর্মদিবস উত্তীর্ণের তারিখ</th>
+                                        <th>১৫ কর্মদিবস উত্তীর্ণ হতে লাগবে</th>
+                                        <th>৩০ কর্মদিবস উত্তীর্ণের তারিখ</th>
+                                        <th>৩০ কর্মদিবস উত্তীর্ণ হতে লাগবে</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        @for (int i = 0; i < Model.Count; i++)
+                                        {
+
+                                            <td>@Model[i].DateofInvestigateOrder.ToString("dd-MM-yyyy")</td>
+                                            <td>@Model[i].SajekaId</td>
+                                            <td>@Model[i].EmployeeId</td>
+                                            <td>@Model[i].FileNumber</td>
+                                            <td>@Model[i].AccuserId</td>
+                                            <td>@Model[i].ComplainDescription</td>
+                                            <td>@Model[i].CurrentStatus</td>
+
+                                        }
+                                        <td style="background-color:#00FF00;">
+                                            @ViewBag.halfProgressDate.ToString("dd-MM-yyyy")
+                                        </td>
+                                        <td>
+                                            @ViewBag.halfmonthCount
+                                        </td>
+                                        <td style="background-color:#FF0000;">
+                                            @ViewBag.fullProgressDate.ToString("dd-MM-yyyy")
+                                        </td>
+                                        <td>
+                                            @ViewBag.fullmonthCount
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+}

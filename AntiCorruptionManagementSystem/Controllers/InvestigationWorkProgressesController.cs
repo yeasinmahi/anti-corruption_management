@@ -14,12 +14,46 @@ namespace AntiCorruptionManagementSystem.Controllers
     {
         private ACMSDbContext db = new ACMSDbContext();
 
+        public ActionResult InvestigationProgressReport()
+        {
+            List<InvestigationWorkProgress> ProgressList = new List<InvestigationWorkProgress>();
+            ViewBag.WingId = new SelectList(db.Wing, "Sl", "Name");
+            ViewBag.SajekaId = new SelectList(db.Sajeka, "Sl", "Name");
+            ViewBag.EmployeeId = new SelectList(db.Employee, "Sl", "Name");
+            return View(ProgressList);
+        }
+        public ActionResult InvestigationProgressReportView(int? employeeId, int? wingId, int? sajekaId)
+        {
+            int WingId = Convert.ToInt32(Request["wingId"]);
+            int SajekaId = Convert.ToInt32(Request["sajekaId"]);
+            int EmployeeId = Convert.ToInt32(Request["employeeId"]);
+            ViewBag.WingId = new SelectList(db.Wing, "Sl", "Name");
+            ViewBag.SajekaId = new SelectList(db.Sajeka, "Sl", "Name");
+            ViewBag.EmployeeId = new SelectList(db.Employee, "Sl", "Name");
+            ViewBag.WingName = db.Wing.Where(i => i.Sl == wingId).Select(p => p.Name).FirstOrDefault();
+            ViewBag.SajekaName = db.Sajeka.Where(i => i.Sl == sajekaId).Select(p => p.Name).FirstOrDefault();
+            ViewBag.EmployeeName = db.Employee.Where(i => i.Sl == employeeId).Select(p => p.Name).FirstOrDefault();
+            List<InvestigationWorkProgress> ProgressList = db.InvestigationWorkProgress.Where(t => t.EmployeeId == employeeId).Where(t=> t.WingId==wingId).Where(t => t.SajekaId == sajekaId).ToList();
+            var ProgressDate = db.InvestigationWorkProgress.Select(t => t.DateofInvestigateOrder).FirstOrDefault();
+            var halfProgressDate = ProgressDate.AddDays(15);
+            ViewBag.halfProgressDate = halfProgressDate;
+            var fullProgressDate = ProgressDate.AddDays(30);
+            ViewBag.fullProgressDate = fullProgressDate;
+            var CurrentDate = DateTime.Now;
+            ViewBag.halfmonthCount = Math.Floor((halfProgressDate - CurrentDate).TotalDays);
+            ViewBag.fullmonthCount = Math.Floor((fullProgressDate- CurrentDate).TotalDays);
+            ViewBag.Status = "SelectEmployee";
+            return View("InvestigationProgressReport", ProgressList);
+        }
+
         // GET: InvestigationWorkProgresses
         public ActionResult Index()
         {
             var investigationWorkProgress = db.InvestigationWorkProgress.Include(i => i.Accusers).Include(i => i.Employees).Include(i => i.Sajekas).Include(i => i.Wings);
             return View(investigationWorkProgress.ToList());
         }
+
+
 
         // GET: InvestigationWorkProgresses/Details/5
         public ActionResult Details(int? id)

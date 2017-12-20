@@ -354,6 +354,7 @@
     <Content Include="Views\InvestigationWorkProgresses\Details.cshtml" />
     <Content Include="Views\InvestigationWorkProgresses\Edit.cshtml" />
     <Content Include="Views\InvestigationWorkProgresses\Index.cshtml" />
+    <Content Include="Views\InvestigationWorkProgresses\InvestigationProgressReport.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
