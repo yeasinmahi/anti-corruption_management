@@ -1,14 +1,14 @@
 ﻿@{
-    ViewBag.Title = "Investigation";
+    ViewBag.Title = "Inquiry";
 }
 <header class="panel_header">
-    <h2 class="title pull-left">Investigation</h2>
+    <h2 class="title pull-left">Inquiry</h2>
     <div class="actions panel_actions pull-right">
         <i class="box_toggle fa fa-chevron-down"></i>
     </div>
 </header>
 <br /> <br />
-@using (Html.BeginForm("InvestigationProgressReportView", "InvestigationWorkProgresses"))
+@using (Html.BeginForm("InquiryProgressReportView", "InquiryWorkProgresses"))
 {
     <div class="row">
         <div class="col-md-4" style="margin-left:3%">
@@ -52,7 +52,7 @@
                     {
                         if (ViewBag.Status != null)
                         {
-                           
+
 
                             <table cellspacing="0" id="tech-companies-1" class="table table-small-font table-bordered table-striped">
 
@@ -78,7 +78,7 @@
                                         @for (int i = 0; i < Model.Count; i++)
                                         {
 
-                                            <td>@Model[i].DateofInvestigateOrder.ToString("dd-MM-yyyy")</td>
+                                            <td>@Model[i].DateofInquiryOrder.ToString("dd-MM-yyyy")</td>
                                             <td>@Model[i].Sajekas.Name</td>
                                             <td>@Model[i].Employees.Name</td>
                                             <td>@Model[i].FileNumber</td>

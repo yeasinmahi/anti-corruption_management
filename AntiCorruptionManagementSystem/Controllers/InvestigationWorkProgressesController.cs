@@ -33,7 +33,7 @@ namespace AntiCorruptionManagementSystem.Controllers
             ViewBag.WingName = db.Wing.Where(i => i.Sl == wingId).Select(p => p.Name).FirstOrDefault();
             ViewBag.SajekaName = db.Sajeka.Where(i => i.Sl == sajekaId).Select(p => p.Name).FirstOrDefault();
             ViewBag.EmployeeName = db.Employee.Where(i => i.Sl == employeeId).Select(p => p.Name).FirstOrDefault();
-            List<InvestigationWorkProgress> ProgressList = db.InvestigationWorkProgress.Where(t => t.EmployeeId == employeeId).Where(t=> t.WingId==wingId).Where(t => t.SajekaId == sajekaId).ToList();
+            List<InvestigationWorkProgress> ProgressList = db.InvestigationWorkProgress.Where(t => t.EmployeeId == employeeId).Where(t=> t.WingId==wingId).Where(t => t.SajekaId == sajekaId).Include(x => x.Sajekas).Include(x => x.Wings).Include(x => x.Employees).ToList();
             var ProgressDate = db.InvestigationWorkProgress.Select(t => t.DateofInvestigateOrder).FirstOrDefault();
             var halfProgressDate = ProgressDate.AddDays(15);
             ViewBag.halfProgressDate = halfProgressDate;
