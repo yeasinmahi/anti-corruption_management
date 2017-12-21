@@ -4,14 +4,14 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>বিবরন</h2>
 
 <div>
-    <h4>Sajeka</h4>
+    <h4>সজেকা</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.WingId)
+            প্রধান উইং এর নাম
         </dt>
 
         <dd>
@@ -19,7 +19,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Name)
+            সজেকার নাম
         </dt>
 
         <dd>
@@ -29,6 +29,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Sl }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("সম্পাদন", "Edit", new { id = Model.Sl }) |
+    @Html.ActionLink("তালিকায় ফেরা", "Index")
 </p>

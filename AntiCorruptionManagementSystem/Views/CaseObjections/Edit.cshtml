@@ -17,6 +17,21 @@
         @Html.HiddenFor(model => model.Sl)
 
         <div class="form-group">
+            @Html.LabelFor(model => model.WingId, "প্রধান উইং এর নাম", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("WingId", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.WingId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.EmployeeId, "কর্মকর্তার নাম", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("EmployeeId", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.EmployeeId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
             @Html.LabelFor(model => model.ERNumber, "ই আর নম্বর", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.ERNumber, new { htmlAttributes = new { @class = "form-control" } })
@@ -81,7 +96,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.IsActive, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.IsActive, "অ্যাকাউন্ট সচল ?", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <div class="checkbox">
                     @Html.EditorFor(model => model.IsActive)
@@ -90,21 +105,6 @@
             </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.WingId, "উইং আই ডি", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("WingId", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.WingId, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.EmployeeId, "কর্মকর্তার আই ডি", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("EmployeeId", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.EmployeeId, "", new { @class = "text-danger" })
-            </div>
-        </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
@@ -115,5 +115,5 @@
 }
 
 <div>
-    @Html.ActionLink("তালিকায় ফেরা", "Index")
+    @Html.ActionLink("তালিকায় ফিরুন", "Index")
 </div>

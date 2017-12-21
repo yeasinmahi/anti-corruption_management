@@ -4,15 +4,30 @@
     ViewBag.Title = "Delete";
 }
 
-<h2>Delete</h2>
+<h2>মুছুন</h2>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>আপনি কি সত্যি মুছতে চান?</h3>
 <div>
-    <h4>InquiryWorkProgress</h4>
+    <h4>অনুসন্ধান অনুবিভাগের কর্মকর্তাদের কাজের অগ্রগতি</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Accusers.Name)
+            প্রধান উইং এর নাম
+        </dt>
+
+        <dt>
+            সজেকার নাম
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sajekas.Name)
+        </dd>
+
+        <dd>
+            @Html.DisplayFor(model => model.Wings.Name)
+        </dd>
+        <dt>
+            অভিযোগকারীর নাম
         </dt>
 
         <dd>
@@ -20,31 +35,19 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Employees.Name)
+            কর্মকর্তার নাম
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.Employees.Name)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Sajekas.Name)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Sajekas.Name)
-        </dd>
+
+ 
 
         <dt>
-            @Html.DisplayNameFor(model => model.Wings.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Wings.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.FileNumber)
+            ফাইলের নম্বর
         </dt>
 
         <dd>
@@ -52,7 +55,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.DateofInquiryOrder)
+            তদন্ত শুরু করার জন্য পত্র/দায়িত্ব প্রাপ্তির তারিখ
         </dt>
 
         <dd>
@@ -60,7 +63,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.ComplainDescription)
+            অভিযোগের বিবরন
         </dt>
 
         <dd>
@@ -68,7 +71,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.CurrentStatus)
+            বর্তমান অবস্থা
         </dt>
 
         <dd>
@@ -76,7 +79,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Remarks)
+            মন্তব্য
         </dt>
 
         <dd>
@@ -84,7 +87,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.IsActive)
+            অ্যাকাউন্ট সচল ?
         </dt>
 
         <dd>
@@ -97,8 +100,8 @@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+            <input type="submit" value="মুছুন" class="btn btn-default" /> |
+            @Html.ActionLink("তালিকায় ফেরা", "Index")
         </div>
     }
 </div>

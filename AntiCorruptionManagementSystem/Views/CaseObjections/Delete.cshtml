@@ -12,19 +12,17 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
+            উইং এর নাম
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Wings.Name)
+        </dd>
+        <dt>
             কর্মকর্তার নাম
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.Employees.Name)
-        </dd>
-
-        <dt>
-            উইং এর নাম
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Wings.Name)
         </dd>
 
         <dt>
@@ -92,7 +90,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.IsActive)
+            অ্যাকাউন্ট সচল ?
         </dt>
 
         <dd>
@@ -106,7 +104,7 @@
 
         <div class="form-actions no-color">
             <input type="submit" value="মুছুন" class="btn btn-default" /> |
-            @Html.ActionLink("তালিকায় ফেরা", "Index")
+            @Html.ActionLink("তালিকায় ফিরুন", "Index")
         </div>
     }
 </div>

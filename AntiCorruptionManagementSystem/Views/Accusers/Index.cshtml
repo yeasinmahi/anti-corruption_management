@@ -4,7 +4,7 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>মামলাকারীর তালিকা</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -12,10 +12,10 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Name)
+            মামলাকারীর নাম
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.IsActive)
+            অ্যাকাউন্ট সচল ?
         </th>
         <th></th>
     </tr>
@@ -29,9 +29,9 @@
             @Html.DisplayFor(modelItem => item.IsActive)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Sl }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Sl }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Sl })
+            @Html.ActionLink("সম্পাদন করুন", "Edit", new { id=item.Sl }) |
+            @Html.ActionLink("বিবরন", "Details", new { id=item.Sl }) |
+            @Html.ActionLink("মুছুন", "Delete", new { id=item.Sl })
         </td>
     </tr>
 }

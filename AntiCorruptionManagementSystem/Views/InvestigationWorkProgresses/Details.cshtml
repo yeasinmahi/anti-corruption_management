@@ -4,38 +4,15 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>বিবরন</h2>
 
 <div>
-    <h4>InvestigationWorkProgress</h4>
+    <h4>তদন্ত অনুবিভাগের কর্মকর্তাদের কাজের অগ্রগতি</h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Accusers.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Accusers.Name)
-        </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Employees.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Employees.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Sajekas.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Sajekas.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Wings.Name)
+            উইং এর নাম
         </dt>
 
         <dd>
@@ -43,7 +20,31 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.FileNumber)
+            সজেকার নাম
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sajekas.Name)
+        </dd>
+
+        <dt>
+            কর্মকর্তার নাম
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Employees.Name)
+        </dd>
+
+        <dt>
+            অভিযোগকারীর নাম
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Accusers.Name)
+        </dd>
+
+        <dt>
+            ফাইলের নম্বর
         </dt>
 
         <dd>
@@ -51,7 +52,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.DateofInvestigateOrder)
+            তদন্ত শুরু করার জন্য পত্র/দায়িত্ব প্রাপ্তির তারিখ
         </dt>
 
         <dd>
@@ -59,7 +60,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.ComplainDescription)
+            অভিযোগের বিবরন
         </dt>
 
         <dd>
@@ -67,7 +68,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.CurrentStatus)
+            বর্তমান অবস্থা
         </dt>
 
         <dd>
@@ -75,7 +76,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Remarks)
+            মন্তব্য
         </dt>
 
         <dd>
@@ -83,7 +84,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.IsActive)
+            অ্যাকাউন্ট সচল ?
         </dt>
 
         <dd>
@@ -93,6 +94,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Sl }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("সম্পাদন", "Edit", new { id = Model.Sl }) |
+    @Html.ActionLink("তালিকায় ফেরা", "Index")
 </p>

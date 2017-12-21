@@ -50,6 +50,7 @@ namespace AntiCorruptionManagementSystem.Controllers
         {
             if (accuser.Name!= "")
             {
+                accuser.IsActive = true;
                 db.Accuser.Add(accuser);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -110,7 +111,8 @@ namespace AntiCorruptionManagementSystem.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Accuser accuser = db.Accuser.Find(id);
-            db.Accuser.Remove(accuser);
+            accuser.IsActive = false;
+            db.Entry(accuser).State = EntityState.Modified;
             db.SaveChanges();
             return RedirectToAction("Index");
         }

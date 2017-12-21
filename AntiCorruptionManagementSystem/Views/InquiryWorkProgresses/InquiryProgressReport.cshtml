@@ -2,47 +2,48 @@
     ViewBag.Title = "Inquiry";
 }
 <header class="panel_header">
-    <h2 class="title pull-left">Inquiry</h2>
+    <h2 class="title pull-left" style="margin-left:3%">অনুসন্ধান অনুবিভাগে কর্মকর্তাদের কাজের অগ্রগতি</h2>
     <div class="actions panel_actions pull-right">
         <i class="box_toggle fa fa-chevron-down"></i>
     </div>
 </header>
-<br /> <br />
+<br /> <br /><br/><br /><br />
 @using (Html.BeginForm("InquiryProgressReportView", "InquiryWorkProgresses"))
 {
     <div class="row">
-        <div class="col-md-4" style="margin-left:3%">
+        <div class="col-md-10" style="margin-left:3%">
             <div class="form-group">
-                <label class="form-label" for="wingId">Wing Name:</label>
+                <label class="form-label" for="wingId">প্রধান উইং:</label>
                 <div class="controls">
-                    @Html.DropDownList("WingId", null, "--select--", htmlAttributes: new { @class = "form-control", style = "width:100%", @name = "WingName" })
+                    @Html.DropDownList("WingId", null, "--প্রধান উইং এর নাম পছন্দ করুন--", htmlAttributes: new { @class = "form-control", style = "width:100%", @name = "WingName" })
                 </div>
             </div>
 
         </div>
-        <div class="col-md-4" style="margin-left:3%">
+        <div class="col-md-10" style="margin-left:3%">
             <div class="form-group">
-                <label class="form-label" for="sajekaId">Sajeka Name:</label>
+                <label class="form-label" for="sajekaId">সজেকার নাম:</label>
                 <div class="controls">
-                    @Html.DropDownList("SajekaId", null, "--select--", htmlAttributes: new { @class = "form-control", style = "width:100%", @name = "SajekaName" })
+                    @Html.DropDownList("SajekaId", null, "--সজেকার নাম পছন্দ করুন--", htmlAttributes: new { @class = "form-control", style = "width:100%", @name = "SajekaName" })
                 </div>
             </div>
 
         </div>
-        <div class="col-md-4" style="margin-left:3%">
+        <div class="col-md-10" style="margin-left:3%">
             <div class="form-group">
-                <label class="form-label" for="employeeId">Employee Name:</label>
+                <label class="form-label" for="employeeId">কর্মকর্তার নাম:</label>
                 <div class="controls">
-                    @Html.DropDownList("EmployeeId", null, "--select--", htmlAttributes: new { @class = "form-control", style = "width:100%", @name = "EmployeeName" })
+                    @Html.DropDownList("EmployeeId", null, "--কর্মকর্তার নাম পছন্দ করুন--", htmlAttributes: new { @class = "form-control", style = "width:100%", @name = "EmployeeName" })
                 </div>
             </div>
 
         </div>
         <div class="col-xs-2" style="margin-left:45%">
-            <button type="submit" class="btn btn-success">Submit</button>
+            <button type="submit" class="btn btn-success">দেখুন</button>
         </div>
     </div>
-
+    
+    <br/><br/><br/>
 
     <div class="content-body">
         <div class="row">

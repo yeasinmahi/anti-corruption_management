@@ -89,6 +89,7 @@ namespace AntiCorruptionManagementSystem.Controllers
         {
             if (investigationWorkProgress.FileNumber!="")
             {
+                investigationWorkProgress.IsActive = true;
                 db.InvestigationWorkProgress.Add(investigationWorkProgress);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -161,7 +162,8 @@ namespace AntiCorruptionManagementSystem.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             InvestigationWorkProgress investigationWorkProgress = db.InvestigationWorkProgress.Find(id);
-            db.InvestigationWorkProgress.Remove(investigationWorkProgress);
+            investigationWorkProgress.IsActive = false;
+            db.Entry(investigationWorkProgress).State = EntityState.Modified;
             db.SaveChanges();
             return RedirectToAction("Index");
         }

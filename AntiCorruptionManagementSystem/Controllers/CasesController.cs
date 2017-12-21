@@ -124,7 +124,8 @@ namespace AntiCorruptionManagementSystem.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Case cases = db.Case.Find(id);
-            db.Case.Remove(cases);
+            cases.IsActive = false;
+            db.Entry(cases).State = EntityState.Modified;
             db.SaveChanges();
             return RedirectToAction("Index");
         }

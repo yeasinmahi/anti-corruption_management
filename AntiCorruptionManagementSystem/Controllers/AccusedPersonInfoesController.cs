@@ -119,7 +119,8 @@ namespace AntiCorruptionManagementSystem.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             AccusedPersonInfo accusedPersonInfo = db.AccusedPersonInfo.Find(id);
-            db.AccusedPersonInfo.Remove(accusedPersonInfo);
+            accusedPersonInfo.IsActive = false;
+            db.Entry(accusedPersonInfo).State = EntityState.Modified;
             db.SaveChanges();
             return RedirectToAction("Index");
         }

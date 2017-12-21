@@ -4,14 +4,14 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>বিবরন</h2>
 
 <div>
-    <h4>AccusedPersonInfo</h4>
+    <h4>আসামীর তথ্য</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Cases.CaseNumber)
+            মামলার নম্বর
         </dt>
 
         <dd>
@@ -19,7 +19,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Employees.Name)
+           কর্মকর্তার নাম
         </dt>
 
         <dd>
@@ -27,7 +27,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Name)
+            আসামীর নাম
         </dt>
 
         <dd>
@@ -35,7 +35,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Designation)
+            পদবী
         </dt>
 
         <dd>
@@ -43,7 +43,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Address)
+            ঠিকানা
         </dt>
 
         <dd>
@@ -51,7 +51,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.DateofCaseSubmission)
+            মামালার তারিখ
         </dt>
 
         <dd>
@@ -59,7 +59,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.CaseShortDescription)
+            মামলার সংক্ষিপ্ত বিবরন
         </dt>
 
         <dd>
@@ -67,7 +67,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.IsActive)
+            অ্যাকাউন্ট সচল ?
         </dt>
 
         <dd>
@@ -77,6 +77,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Sl }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("সম্পাদন", "Edit", new { id = Model.Sl }) |
+    @Html.ActionLink("তালিকায় ফেরা", "Index")
 </p>

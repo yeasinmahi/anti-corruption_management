@@ -12,11 +12,12 @@
 <table class="table">
     <tr>
         <th>
-            কর্মকর্তার নাম
-        </th>
-        <th>
             উইং এর নাম
         </th>
+        <th>
+            কর্মকর্তার নাম
+        </th>
+
         <th>
            ই আর নং
         </th>
@@ -50,11 +51,12 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Employees.Name)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.Wings.Name)
         </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Employees.Name)
+        </td>
+        
         <td>
             @Html.DisplayFor(modelItem => item.ERNumber)
         </td>

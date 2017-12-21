@@ -4,42 +4,43 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>অনুসন্ধান অনুবিভাগে কর্মকর্তাদের কাজের অগ্রগতি রিপোর্ট</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("নতুন তৈরি করা", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Accusers.Name)
+            প্রধান উইং এর নাম
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Employees.Name)
+            সজেকার নাম
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Sajekas.Name)
+            কর্মকর্তার নাম
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Wings.Name)
+            অভিযোগকারীর নাম
+        </th>
+       
+        <th>
+            ফাইলের নম্বর
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.FileNumber)
+            তদন্ত শুরু করার জন্য পত্র/দায়িত্ব প্রাপ্তির তারিখ
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.DateofInquiryOrder)
+            অভিযোগের বিবরন
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ComplainDescription)
+            বর্তমান অবস্থা (রিট/মিস কেইসের কারনে স্থগিত থাকলে উল্লেখ করুন),সাক্ষীদের সাক্ষ্য গ্রহণ প্রয়োজনীয় রেকর্ডপত্র সংগ্রহ ইত্যাদি ক্ষেত্রে কাজের অগ্রগতির শতকরা(%) হার
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CurrentStatus)
+            মন্তব্য
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Remarks)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IsActive)
+            অ্যাকাউন্ট সচল ?
         </th>
         <th></th>
     </tr>
@@ -47,17 +48,20 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Accusers.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Employees.Name)
+            @Html.DisplayFor(modelItem => item.Wings.Name)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Sajekas.Name)
         </td>
+      
         <td>
-            @Html.DisplayFor(modelItem => item.Wings.Name)
+            @Html.DisplayFor(modelItem => item.Employees.Name)
         </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.Accusers.Name)
+        </td>
+       
         <td>
             @Html.DisplayFor(modelItem => item.FileNumber)
         </td>
@@ -77,9 +81,9 @@
             @Html.DisplayFor(modelItem => item.IsActive)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Sl }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Sl }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Sl })
+            @Html.ActionLink("সম্পাদন", "Edit", new { id=item.Sl }) |
+            @Html.ActionLink("বিবরন", "Details", new { id=item.Sl }) |
+            @Html.ActionLink("মুছুন", "Delete", new { id=item.Sl })
         </td>
     </tr>
 }
