@@ -3,7 +3,7 @@ namespace AntiCorruptionManagementSystem.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class update_replace_SubwingstoSajeka : DbMigration
+    public partial class UpdateReplaceSubwingstoSajeka : DbMigration
     {
         public override void Up()
         {

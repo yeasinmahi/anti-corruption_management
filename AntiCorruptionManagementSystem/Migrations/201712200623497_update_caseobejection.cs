@@ -3,7 +3,7 @@ namespace AntiCorruptionManagementSystem.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class update_caseobejection : DbMigration
+    public partial class UpdateCaseobejection : DbMigration
     {
         public override void Up()
         {

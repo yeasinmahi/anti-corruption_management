@@ -12,12 +12,12 @@ namespace AntiCorruptionManagementSystem.Controllers
 {
     public class AccusedPersonInfoesController : Controller
     {
-        private AcmsDbContext db = new AcmsDbContext();
+        private AcmsDbContext _db = new AcmsDbContext();
 
         // GET: AccusedPersonInfoes
         public ActionResult Index()
         {
-            var accusedPersonInfo = db.AccusedPersonInfo.Include(a => a.Cases).Include(a => a.Employees);
+            var accusedPersonInfo = _db.AccusedPersonInfo.Include(a => a.Cases).Include(a => a.Employees);
             return View(accusedPersonInfo.ToList());
         }
 
@@ -28,7 +28,7 @@ namespace AntiCorruptionManagementSystem.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            AccusedPersonInfo accusedPersonInfo = db.AccusedPersonInfo.Find(id);
+            AccusedPersonInfo accusedPersonInfo = _db.AccusedPersonInfo.Find(id);
             if (accusedPersonInfo == null)
             {
                 return HttpNotFound();
@@ -39,8 +39,8 @@ namespace AntiCorruptionManagementSystem.Controllers
         // GET: AccusedPersonInfoes/Create
         public ActionResult Create()
         {
-            ViewBag.CaseId = new SelectList(db.Case, "Sl", "CaseNumber");
-            ViewBag.EmployeeId = new SelectList(db.Employee, "Sl", "Name");
+            ViewBag.CaseId = new SelectList(_db.Case, "Sl", "CaseNumber");
+            ViewBag.EmployeeId = new SelectList(_db.Employee, "Sl", "Name");
             return View();
         }
 
@@ -53,13 +53,13 @@ namespace AntiCorruptionManagementSystem.Controllers
         {
             if (accusedPersonInfo.Name!= "")
             {
-                db.AccusedPersonInfo.Add(accusedPersonInfo);
-                db.SaveChanges();
+                _db.AccusedPersonInfo.Add(accusedPersonInfo);
+                _db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.CaseId = new SelectList(db.Case, "Sl", "CaseNumber", accusedPersonInfo.CaseId);
-            ViewBag.EmployeeId = new SelectList(db.Employee, "Sl", "Name", accusedPersonInfo.EmployeeId);
+            ViewBag.CaseId = new SelectList(_db.Case, "Sl", "CaseNumber", accusedPersonInfo.CaseId);
+            ViewBag.EmployeeId = new SelectList(_db.Employee, "Sl", "Name", accusedPersonInfo.EmployeeId);
             return View(accusedPersonInfo);
         }
 
@@ -70,13 +70,13 @@ namespace AntiCorruptionManagementSystem.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            AccusedPersonInfo accusedPersonInfo = db.AccusedPersonInfo.Find(id);
+            AccusedPersonInfo accusedPersonInfo = _db.AccusedPersonInfo.Find(id);
             if (accusedPersonInfo == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.CaseId = new SelectList(db.Case, "Sl", "CaseNumber", accusedPersonInfo.CaseId);
-            ViewBag.EmployeeId = new SelectList(db.Employee, "Sl", "Name", accusedPersonInfo.EmployeeId);
+            ViewBag.CaseId = new SelectList(_db.Case, "Sl", "CaseNumber", accusedPersonInfo.CaseId);
+            ViewBag.EmployeeId = new SelectList(_db.Employee, "Sl", "Name", accusedPersonInfo.EmployeeId);
             return View(accusedPersonInfo);
         }
 
@@ -89,12 +89,12 @@ namespace AntiCorruptionManagementSystem.Controllers
         {
             if (accusedPersonInfo.Name != "")
             {
-                db.Entry(accusedPersonInfo).State = EntityState.Modified;
-                db.SaveChanges();
+                _db.Entry(accusedPersonInfo).State = EntityState.Modified;
+                _db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.CaseId = new SelectList(db.Case, "Sl", "CaseNumber", accusedPersonInfo.CaseId);
-            ViewBag.EmployeeId = new SelectList(db.Employee, "Sl", "Name", accusedPersonInfo.EmployeeId);
+            ViewBag.CaseId = new SelectList(_db.Case, "Sl", "CaseNumber", accusedPersonInfo.CaseId);
+            ViewBag.EmployeeId = new SelectList(_db.Employee, "Sl", "Name", accusedPersonInfo.EmployeeId);
             return View(accusedPersonInfo);
         }
 
@@ -105,7 +105,7 @@ namespace AntiCorruptionManagementSystem.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            AccusedPersonInfo accusedPersonInfo = db.AccusedPersonInfo.Find(id);
+            AccusedPersonInfo accusedPersonInfo = _db.AccusedPersonInfo.Find(id);
             if (accusedPersonInfo == null)
             {
                 return HttpNotFound();
@@ -118,10 +118,10 @@ namespace AntiCorruptionManagementSystem.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            AccusedPersonInfo accusedPersonInfo = db.AccusedPersonInfo.Find(id);
+            AccusedPersonInfo accusedPersonInfo = _db.AccusedPersonInfo.Find(id);
             accusedPersonInfo.IsActive = false;
-            db.Entry(accusedPersonInfo).State = EntityState.Modified;
-            db.SaveChanges();
+            _db.Entry(accusedPersonInfo).State = EntityState.Modified;
+            _db.SaveChanges();
             return RedirectToAction("Index");
         }
 
@@ -129,7 +129,7 @@ namespace AntiCorruptionManagementSystem.Controllers
         {
             if (disposing)
             {
-                db.Dispose();
+                _db.Dispose();
             }
             base.Dispose(disposing);
         }

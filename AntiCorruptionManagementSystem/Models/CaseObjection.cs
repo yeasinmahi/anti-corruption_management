@@ -14,7 +14,7 @@ namespace AntiCorruptionManagementSystem.Models
         public int Sl { get; set; }
 
         [Required(ErrorMessage = "Number cannot be empty")]
-        public string ERNumber { get; set; }
+        public string ErNumber { get; set; }
 
         [Required(ErrorMessage = "Name cannot be empty")]
         public string Name { get; set; }

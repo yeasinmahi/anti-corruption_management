@@ -8,12 +8,12 @@ namespace AntiCorruptionManagementSystem.Controllers
 {
     public class SajekasController : Controller
     {
-        private AcmsDbContext db = new AcmsDbContext();
+        private AcmsDbContext _db = new AcmsDbContext();
 
         // GET: Sajekas
         public ActionResult Index()
         {
-            return View(db.Sajeka.Include(i=> i.Wings).ToList());
+            return View(_db.Sajeka.Include(i=> i.Wings).ToList());
         }
 
         // GET: Sajekas/Details/5
@@ -23,7 +23,7 @@ namespace AntiCorruptionManagementSystem.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Sajeka sajeka = db.Sajeka.Find(id);
+            Sajeka sajeka = _db.Sajeka.Find(id);
             if (sajeka == null)
             {
                 return HttpNotFound();
@@ -34,7 +34,7 @@ namespace AntiCorruptionManagementSystem.Controllers
         // GET: Sajekas/Create
         public ActionResult Create()
         {
-            ViewBag.WingId = new SelectList(db.Wing, "Sl", "Name");
+            ViewBag.WingId = new SelectList(_db.Wing, "Sl", "Name");
             return View();
         }
 
@@ -47,11 +47,11 @@ namespace AntiCorruptionManagementSystem.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Sajeka.Add(sajeka);
-                db.SaveChanges();
+                _db.Sajeka.Add(sajeka);
+                _db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.WingId = new SelectList(db.Wing, "Sl", "Name",sajeka.WingId);
+            ViewBag.WingId = new SelectList(_db.Wing, "Sl", "Name",sajeka.WingId);
             return View(sajeka);
         }
 
@@ -62,12 +62,12 @@ namespace AntiCorruptionManagementSystem.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Sajeka sajeka = db.Sajeka.Find(id);
+            Sajeka sajeka = _db.Sajeka.Find(id);
             if (sajeka == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.WingId = new SelectList(db.Wing, "Sl", "Name", sajeka.WingId);
+            ViewBag.WingId = new SelectList(_db.Wing, "Sl", "Name", sajeka.WingId);
             return View(sajeka);
         }
 
@@ -80,11 +80,11 @@ namespace AntiCorruptionManagementSystem.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(sajeka).State = EntityState.Modified;
-                db.SaveChanges();
+                _db.Entry(sajeka).State = EntityState.Modified;
+                _db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.WingId = new SelectList(db.Wing, "Sl", "Name", sajeka.WingId);
+            ViewBag.WingId = new SelectList(_db.Wing, "Sl", "Name", sajeka.WingId);
             return View(sajeka);
         }
 
@@ -95,7 +95,7 @@ namespace AntiCorruptionManagementSystem.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Sajeka sajeka = db.Sajeka.Find(id);
+            Sajeka sajeka = _db.Sajeka.Find(id);
             if (sajeka == null)
             {
                 return HttpNotFound();
@@ -108,9 +108,9 @@ namespace AntiCorruptionManagementSystem.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Sajeka sajeka = db.Sajeka.Find(id);
-            db.Sajeka.Remove(sajeka);
-            db.SaveChanges();
+            Sajeka sajeka = _db.Sajeka.Find(id);
+            _db.Sajeka.Remove(sajeka);
+            _db.SaveChanges();
             return RedirectToAction("Index");
         }
 
@@ -118,7 +118,7 @@ namespace AntiCorruptionManagementSystem.Controllers
         {
             if (disposing)
             {
-                db.Dispose();
+                _db.Dispose();
             }
             base.Dispose(disposing);
         }

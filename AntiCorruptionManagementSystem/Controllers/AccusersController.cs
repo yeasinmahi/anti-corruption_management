@@ -12,12 +12,12 @@ namespace AntiCorruptionManagementSystem.Controllers
 {
     public class AccusersController : Controller
     {
-        private AcmsDbContext db = new AcmsDbContext();
+        private AcmsDbContext _db = new AcmsDbContext();
 
         // GET: Accusers
         public ActionResult Index()
         {
-            return View(db.Accuser.ToList());
+            return View(_db.Accuser.ToList());
         }
 
         // GET: Accusers/Details/5
@@ -27,7 +27,7 @@ namespace AntiCorruptionManagementSystem.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Accuser accuser = db.Accuser.Find(id);
+            Accuser accuser = _db.Accuser.Find(id);
             if (accuser == null)
             {
                 return HttpNotFound();
@@ -51,8 +51,8 @@ namespace AntiCorruptionManagementSystem.Controllers
             if (accuser.Name!= "")
             {
                 accuser.IsActive = true;
-                db.Accuser.Add(accuser);
-                db.SaveChanges();
+                _db.Accuser.Add(accuser);
+                _db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
@@ -66,7 +66,7 @@ namespace AntiCorruptionManagementSystem.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Accuser accuser = db.Accuser.Find(id);
+            Accuser accuser = _db.Accuser.Find(id);
             if (accuser == null)
             {
                 return HttpNotFound();
@@ -83,8 +83,8 @@ namespace AntiCorruptionManagementSystem.Controllers
         {
             if (accuser.Name != "")
             {
-                db.Entry(accuser).State = EntityState.Modified;
-                db.SaveChanges();
+                _db.Entry(accuser).State = EntityState.Modified;
+                _db.SaveChanges();
                 return RedirectToAction("Index");
             }
             return View(accuser);
@@ -97,7 +97,7 @@ namespace AntiCorruptionManagementSystem.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Accuser accuser = db.Accuser.Find(id);
+            Accuser accuser = _db.Accuser.Find(id);
             if (accuser == null)
             {
                 return HttpNotFound();
@@ -110,10 +110,10 @@ namespace AntiCorruptionManagementSystem.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Accuser accuser = db.Accuser.Find(id);
+            Accuser accuser = _db.Accuser.Find(id);
             accuser.IsActive = false;
-            db.Entry(accuser).State = EntityState.Modified;
-            db.SaveChanges();
+            _db.Entry(accuser).State = EntityState.Modified;
+            _db.SaveChanges();
             return RedirectToAction("Index");
         }
 
@@ -121,7 +121,7 @@ namespace AntiCorruptionManagementSystem.Controllers
         {
             if (disposing)
             {
-                db.Dispose();
+                _db.Dispose();
             }
             base.Dispose(disposing);
         }

@@ -12,16 +12,16 @@ namespace AntiCorruptionManagementSystem.Controllers
 {
     public class InquiryWorkProgressesController : Controller
     {
-        private AcmsDbContext db = new AcmsDbContext();
+        private AcmsDbContext _db = new AcmsDbContext();
 
 
         public ActionResult InquiryProgressReport()
         {
-            List<InquiryWorkProgress> ProgressList = new List<InquiryWorkProgress>();
-            ViewBag.WingId = new SelectList(db.Wing, "Sl", "Name");
-            ViewBag.SajekaId = new SelectList(db.Sajeka, "Sl", "Name");
-            ViewBag.EmployeeId = new SelectList(db.Employee, "Sl", "Name");
-            return View(ProgressList);
+            List<InquiryWorkProgress> progressList = new List<InquiryWorkProgress>();
+            ViewBag.WingId = new SelectList(_db.Wing, "Sl", "Name");
+            ViewBag.SajekaId = new SelectList(_db.Sajeka, "Sl", "Name");
+            ViewBag.EmployeeId = new SelectList(_db.Employee, "Sl", "Name");
+            return View(progressList);
         }
 
         public ActionResult InquiryProgressReportView(int? employeeId, int? wingId, int? sajekaId)
@@ -29,29 +29,29 @@ namespace AntiCorruptionManagementSystem.Controllers
             int WingId = Convert.ToInt32(Request["wingId"]);
             int SajekaId = Convert.ToInt32(Request["sajekaId"]);
             int EmployeeId = Convert.ToInt32(Request["employeeId"]);
-            ViewBag.WingId = new SelectList(db.Wing, "Sl", "Name");
-            ViewBag.SajekaId = new SelectList(db.Sajeka, "Sl", "Name");
-            ViewBag.EmployeeId = new SelectList(db.Employee, "Sl", "Name");
-            ViewBag.WingName = db.Wing.Where(i => i.Sl == wingId).Select(p => p.Name).FirstOrDefault();
-            ViewBag.SajekaName = db.Sajeka.Where(i => i.Sl == sajekaId).Select(p => p.Name).FirstOrDefault();
-            ViewBag.EmployeeName = db.Employee.Where(i => i.Sl == employeeId).Select(p => p.Name).FirstOrDefault();
-            List<InquiryWorkProgress> ProgressList = db.InquiryWorkProgress.Where(t => t.EmployeeId == employeeId).Where(t => t.WingId == wingId).Where(t => t.SajekaId == sajekaId).Include(x=> x.Sajekas).Include(x => x.Wings).Include(x => x.Employees).ToList();
-            var ProgressDate = db.InquiryWorkProgress.Select(t => t.DateofInquiryOrder).FirstOrDefault();
-            var halfProgressDate = ProgressDate.AddDays(15);
+            ViewBag.WingId = new SelectList(_db.Wing, "Sl", "Name");
+            ViewBag.SajekaId = new SelectList(_db.Sajeka, "Sl", "Name");
+            ViewBag.EmployeeId = new SelectList(_db.Employee, "Sl", "Name");
+            ViewBag.WingName = _db.Wing.Where(i => i.Sl == wingId).Select(p => p.Name).FirstOrDefault();
+            ViewBag.SajekaName = _db.Sajeka.Where(i => i.Sl == sajekaId).Select(p => p.Name).FirstOrDefault();
+            ViewBag.EmployeeName = _db.Employee.Where(i => i.Sl == employeeId).Select(p => p.Name).FirstOrDefault();
+            List<InquiryWorkProgress> progressList = _db.InquiryWorkProgress.Where(t => t.EmployeeId == employeeId).Where(t => t.WingId == wingId).Where(t => t.SajekaId == sajekaId).Include(x=> x.Sajekas).Include(x => x.Wings).Include(x => x.Employees).ToList();
+            var progressDate = _db.InquiryWorkProgress.Select(t => t.DateofInquiryOrder).FirstOrDefault();
+            var halfProgressDate = progressDate.AddDays(15);
             ViewBag.halfProgressDate = halfProgressDate;
-            var fullProgressDate = ProgressDate.AddDays(30);
+            var fullProgressDate = progressDate.AddDays(30);
             ViewBag.fullProgressDate = fullProgressDate;
-            var CurrentDate = DateTime.Now;
-            ViewBag.halfmonthCount = Math.Floor((halfProgressDate - CurrentDate).TotalDays);
-            ViewBag.fullmonthCount = Math.Floor((fullProgressDate - CurrentDate).TotalDays);
+            var currentDate = DateTime.Now;
+            ViewBag.halfmonthCount = Math.Floor((halfProgressDate - currentDate).TotalDays);
+            ViewBag.fullmonthCount = Math.Floor((fullProgressDate - currentDate).TotalDays);
             ViewBag.Status = "SelectEmployee";
-            return View("InquiryProgressReport", ProgressList);
+            return View("InquiryProgressReport", progressList);
         }
 
         // GET: InquiryWorkProgresses
         public ActionResult Index()
         {
-            var inquiryWorkProgress = db.InquiryWorkProgress.Include(i => i.Accusers).Include(i => i.Employees).Include(i => i.Sajekas).Include(i => i.Wings);
+            var inquiryWorkProgress = _db.InquiryWorkProgress.Include(i => i.Accusers).Include(i => i.Employees).Include(i => i.Sajekas).Include(i => i.Wings);
             return View(inquiryWorkProgress.ToList());
         }
 
@@ -62,7 +62,7 @@ namespace AntiCorruptionManagementSystem.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            InquiryWorkProgress inquiryWorkProgress = db.InquiryWorkProgress.Find(id);
+            InquiryWorkProgress inquiryWorkProgress = _db.InquiryWorkProgress.Find(id);
             if (inquiryWorkProgress == null)
             {
                 return HttpNotFound();
@@ -73,10 +73,10 @@ namespace AntiCorruptionManagementSystem.Controllers
         // GET: InquiryWorkProgresses/Create
         public ActionResult Create()
         {
-            ViewBag.AccuserId = new SelectList(db.Accuser, "Sl", "Name");
-            ViewBag.EmployeeId = new SelectList(db.Employee, "Sl", "Name");
-            ViewBag.SajekaId = new SelectList(db.Sajeka, "Sl", "Name");
-            ViewBag.WingId = new SelectList(db.Wing, "Sl", "Name");
+            ViewBag.AccuserId = new SelectList(_db.Accuser, "Sl", "Name");
+            ViewBag.EmployeeId = new SelectList(_db.Employee, "Sl", "Name");
+            ViewBag.SajekaId = new SelectList(_db.Sajeka, "Sl", "Name");
+            ViewBag.WingId = new SelectList(_db.Wing, "Sl", "Name");
             return View();
         }
 
@@ -90,15 +90,15 @@ namespace AntiCorruptionManagementSystem.Controllers
             if (inquiryWorkProgress.FileNumber!="")
             {
                 inquiryWorkProgress.IsActive = true;
-                db.InquiryWorkProgress.Add(inquiryWorkProgress);
-                db.SaveChanges();
+                _db.InquiryWorkProgress.Add(inquiryWorkProgress);
+                _db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.AccuserId = new SelectList(db.Accuser, "Sl", "Name", inquiryWorkProgress.AccuserId);
-            ViewBag.EmployeeId = new SelectList(db.Employee, "Sl", "Name", inquiryWorkProgress.EmployeeId);
-            ViewBag.SajekaId = new SelectList(db.Sajeka, "Sl", "Name", inquiryWorkProgress.SajekaId);
-            ViewBag.WingId = new SelectList(db.Wing, "Sl", "Name", inquiryWorkProgress.WingId);
+            ViewBag.AccuserId = new SelectList(_db.Accuser, "Sl", "Name", inquiryWorkProgress.AccuserId);
+            ViewBag.EmployeeId = new SelectList(_db.Employee, "Sl", "Name", inquiryWorkProgress.EmployeeId);
+            ViewBag.SajekaId = new SelectList(_db.Sajeka, "Sl", "Name", inquiryWorkProgress.SajekaId);
+            ViewBag.WingId = new SelectList(_db.Wing, "Sl", "Name", inquiryWorkProgress.WingId);
             return View(inquiryWorkProgress);
         }
 
@@ -109,15 +109,15 @@ namespace AntiCorruptionManagementSystem.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            InquiryWorkProgress inquiryWorkProgress = db.InquiryWorkProgress.Find(id);
+            InquiryWorkProgress inquiryWorkProgress = _db.InquiryWorkProgress.Find(id);
             if (inquiryWorkProgress == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.AccuserId = new SelectList(db.Accuser, "Sl", "Name", inquiryWorkProgress.AccuserId);
-            ViewBag.EmployeeId = new SelectList(db.Employee, "Sl", "Name", inquiryWorkProgress.EmployeeId);
-            ViewBag.SajekaId = new SelectList(db.Sajeka, "Sl", "Name", inquiryWorkProgress.SajekaId);
-            ViewBag.WingId = new SelectList(db.Wing, "Sl", "Name", inquiryWorkProgress.WingId);
+            ViewBag.AccuserId = new SelectList(_db.Accuser, "Sl", "Name", inquiryWorkProgress.AccuserId);
+            ViewBag.EmployeeId = new SelectList(_db.Employee, "Sl", "Name", inquiryWorkProgress.EmployeeId);
+            ViewBag.SajekaId = new SelectList(_db.Sajeka, "Sl", "Name", inquiryWorkProgress.SajekaId);
+            ViewBag.WingId = new SelectList(_db.Wing, "Sl", "Name", inquiryWorkProgress.WingId);
             return View(inquiryWorkProgress);
         }
 
@@ -130,14 +130,14 @@ namespace AntiCorruptionManagementSystem.Controllers
         {
             if (inquiryWorkProgress.FileNumber != "")
             {
-                db.Entry(inquiryWorkProgress).State = EntityState.Modified;
-                db.SaveChanges();
+                _db.Entry(inquiryWorkProgress).State = EntityState.Modified;
+                _db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.AccuserId = new SelectList(db.Accuser, "Sl", "Name", inquiryWorkProgress.AccuserId);
-            ViewBag.EmployeeId = new SelectList(db.Employee, "Sl", "Name", inquiryWorkProgress.EmployeeId);
-            ViewBag.SajekaId = new SelectList(db.Sajeka, "Sl", "Name", inquiryWorkProgress.SajekaId);
-            ViewBag.WingId = new SelectList(db.Wing, "Sl", "Name", inquiryWorkProgress.WingId);
+            ViewBag.AccuserId = new SelectList(_db.Accuser, "Sl", "Name", inquiryWorkProgress.AccuserId);
+            ViewBag.EmployeeId = new SelectList(_db.Employee, "Sl", "Name", inquiryWorkProgress.EmployeeId);
+            ViewBag.SajekaId = new SelectList(_db.Sajeka, "Sl", "Name", inquiryWorkProgress.SajekaId);
+            ViewBag.WingId = new SelectList(_db.Wing, "Sl", "Name", inquiryWorkProgress.WingId);
             return View(inquiryWorkProgress);
         }
 
@@ -148,7 +148,7 @@ namespace AntiCorruptionManagementSystem.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            InquiryWorkProgress inquiryWorkProgress = db.InquiryWorkProgress.Find(id);
+            InquiryWorkProgress inquiryWorkProgress = _db.InquiryWorkProgress.Find(id);
             if (inquiryWorkProgress == null)
             {
                 return HttpNotFound();
@@ -161,10 +161,10 @@ namespace AntiCorruptionManagementSystem.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            InquiryWorkProgress inquiryWorkProgress = db.InquiryWorkProgress.Find(id);
+            InquiryWorkProgress inquiryWorkProgress = _db.InquiryWorkProgress.Find(id);
             inquiryWorkProgress.IsActive = false;
-            db.Entry(inquiryWorkProgress).State = EntityState.Modified;
-            db.SaveChanges();
+            _db.Entry(inquiryWorkProgress).State = EntityState.Modified;
+            _db.SaveChanges();
             return RedirectToAction("Index");
         }
 
@@ -172,7 +172,7 @@ namespace AntiCorruptionManagementSystem.Controllers
         {
             if (disposing)
             {
-                db.Dispose();
+                _db.Dispose();
             }
             base.Dispose(disposing);
         }

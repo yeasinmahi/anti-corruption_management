@@ -7,9 +7,9 @@ namespace AntiCorruptionManagementSystem.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class update_investigationandinquiry_1 : IMigrationMetadata
+    public sealed partial class UpdateInvestigationandinquiry1 : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(update_investigationandinquiry_1));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(UpdateInvestigationandinquiry1));
         
         string IMigrationMetadata.Id
         {

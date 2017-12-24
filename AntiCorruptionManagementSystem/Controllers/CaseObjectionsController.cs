@@ -12,12 +12,12 @@ namespace AntiCorruptionManagementSystem.Controllers
 {
     public class CaseObjectionsController : Controller
     {
-        private AcmsDbContext db = new AcmsDbContext();
+        private AcmsDbContext _db = new AcmsDbContext();
 
         // GET: CaseObjections
         public ActionResult Index()
         {
-            var caseObjection = db.CaseObjection.Include(c => c.Employees).Include(c => c.Wings);
+            var caseObjection = _db.CaseObjection.Include(c => c.Employees).Include(c => c.Wings);
             return View(caseObjection.ToList());
         }
 
@@ -28,7 +28,7 @@ namespace AntiCorruptionManagementSystem.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            CaseObjection caseObjection = db.CaseObjection.Find(id);
+            CaseObjection caseObjection = _db.CaseObjection.Find(id);
             if (caseObjection == null)
             {
                 return HttpNotFound();
@@ -39,8 +39,8 @@ namespace AntiCorruptionManagementSystem.Controllers
         // GET: CaseObjections/Create
         public ActionResult Create()
         {
-            ViewBag.EmployeeId = new SelectList(db.Employee, "Sl", "Name");
-            ViewBag.WingId = new SelectList(db.Wing, "Sl", "Name");
+            ViewBag.EmployeeId = new SelectList(_db.Employee, "Sl", "Name");
+            ViewBag.WingId = new SelectList(_db.Wing, "Sl", "Name");
             return View();
         }
 
@@ -51,16 +51,16 @@ namespace AntiCorruptionManagementSystem.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Sl,ERNumber,Name,Designation,Address,DateofObjection,ObjectionDetails,InquiryMemorandumNumber,InquiryDate,IsActive,WingId,EmployeeId")] CaseObjection caseObjection)
         {
-            if (caseObjection.ERNumber!="" )
+            if (caseObjection.ErNumber!="" )
             {
                 caseObjection.IsActive = true;
-                db.CaseObjection.Add(caseObjection);
-                db.SaveChanges();
+                _db.CaseObjection.Add(caseObjection);
+                _db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.EmployeeId = new SelectList(db.Employee, "Sl", "Name", caseObjection.EmployeeId);
-            ViewBag.WingId = new SelectList(db.Wing, "Sl", "Name", caseObjection.WingId);
+            ViewBag.EmployeeId = new SelectList(_db.Employee, "Sl", "Name", caseObjection.EmployeeId);
+            ViewBag.WingId = new SelectList(_db.Wing, "Sl", "Name", caseObjection.WingId);
             return View(caseObjection);
         }
 
@@ -71,13 +71,13 @@ namespace AntiCorruptionManagementSystem.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            CaseObjection caseObjection = db.CaseObjection.Find(id);
+            CaseObjection caseObjection = _db.CaseObjection.Find(id);
             if (caseObjection == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.EmployeeId = new SelectList(db.Employee, "Sl", "Name", caseObjection.EmployeeId);
-            ViewBag.WingId = new SelectList(db.Wing, "Sl", "Name", caseObjection.WingId);
+            ViewBag.EmployeeId = new SelectList(_db.Employee, "Sl", "Name", caseObjection.EmployeeId);
+            ViewBag.WingId = new SelectList(_db.Wing, "Sl", "Name", caseObjection.WingId);
             return View(caseObjection);
         }
 
@@ -88,14 +88,14 @@ namespace AntiCorruptionManagementSystem.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Sl,ERNumber,Name,Designation,Address,DateofObjection,ObjectionDetails,InquiryMemorandumNumber,InquiryDate,IsActive,WingId,EmployeeId")] CaseObjection caseObjection)
         {
-            if (caseObjection.ERNumber != "")
+            if (caseObjection.ErNumber != "")
             {
-                db.Entry(caseObjection).State = EntityState.Modified;
-                db.SaveChanges();
+                _db.Entry(caseObjection).State = EntityState.Modified;
+                _db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.EmployeeId = new SelectList(db.Employee, "Sl", "Name", caseObjection.EmployeeId);
-            ViewBag.WingId = new SelectList(db.Wing, "Sl", "Name", caseObjection.WingId);
+            ViewBag.EmployeeId = new SelectList(_db.Employee, "Sl", "Name", caseObjection.EmployeeId);
+            ViewBag.WingId = new SelectList(_db.Wing, "Sl", "Name", caseObjection.WingId);
             return View(caseObjection);
         }
 
@@ -106,7 +106,7 @@ namespace AntiCorruptionManagementSystem.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            CaseObjection caseObjection = db.CaseObjection.Find(id);
+            CaseObjection caseObjection = _db.CaseObjection.Find(id);
             if (caseObjection == null)
             {
                 return HttpNotFound();
@@ -119,10 +119,10 @@ namespace AntiCorruptionManagementSystem.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            CaseObjection caseObjection = db.CaseObjection.Find(id);
+            CaseObjection caseObjection = _db.CaseObjection.Find(id);
             caseObjection.IsActive = false;
-            db.Entry(caseObjection).State = EntityState.Modified;
-            db.SaveChanges();
+            _db.Entry(caseObjection).State = EntityState.Modified;
+            _db.SaveChanges();
             return RedirectToAction("Index");
         }
 
@@ -130,7 +130,7 @@ namespace AntiCorruptionManagementSystem.Controllers
         {
             if (disposing)
             {
-                db.Dispose();
+                _db.Dispose();
             }
             base.Dispose(disposing);
         }

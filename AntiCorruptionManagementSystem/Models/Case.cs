@@ -27,7 +27,7 @@ namespace AntiCorruptionManagementSystem.Models
         [DataType(DataType.Date),
         DisplayFormat(DataFormatString = "{0:dd-MM-yy}",
         ApplyFormatInEditMode = true)]
-        public DateTime DateofIOTaken { get; set; }
+        public DateTime DateofIoTaken { get; set; }
 
         [Required(ErrorMessage = "Description cannot be empty")]
         public string ProgressDetails { get; set; }

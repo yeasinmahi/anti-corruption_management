@@ -12,12 +12,12 @@ namespace AntiCorruptionManagementSystem.Controllers
 {
     public class WingsController : Controller
     {
-        private AcmsDbContext db = new AcmsDbContext();
+        private AcmsDbContext _db = new AcmsDbContext();
 
         // GET: Wings
         public ActionResult Index()
         {
-            return View(db.Wing.ToList());
+            return View(_db.Wing.ToList());
         }
 
         // GET: Wings/Details/5
@@ -27,7 +27,7 @@ namespace AntiCorruptionManagementSystem.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Wing wing = db.Wing.Find(id);
+            Wing wing = _db.Wing.Find(id);
             if (wing == null)
             {
                 return HttpNotFound();
@@ -50,8 +50,8 @@ namespace AntiCorruptionManagementSystem.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Wing.Add(wing);
-                db.SaveChanges();
+                _db.Wing.Add(wing);
+                _db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
@@ -65,7 +65,7 @@ namespace AntiCorruptionManagementSystem.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Wing wing = db.Wing.Find(id);
+            Wing wing = _db.Wing.Find(id);
             if (wing == null)
             {
                 return HttpNotFound();
@@ -82,8 +82,8 @@ namespace AntiCorruptionManagementSystem.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(wing).State = EntityState.Modified;
-                db.SaveChanges();
+                _db.Entry(wing).State = EntityState.Modified;
+                _db.SaveChanges();
                 return RedirectToAction("Index");
             }
             return View(wing);
@@ -96,7 +96,7 @@ namespace AntiCorruptionManagementSystem.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Wing wing = db.Wing.Find(id);
+            Wing wing = _db.Wing.Find(id);
             if (wing == null)
             {
                 return HttpNotFound();
@@ -109,9 +109,9 @@ namespace AntiCorruptionManagementSystem.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Wing wing = db.Wing.Find(id);
-            db.Wing.Remove(wing);
-            db.SaveChanges();
+            Wing wing = _db.Wing.Find(id);
+            _db.Wing.Remove(wing);
+            _db.SaveChanges();
             return RedirectToAction("Index");
         }
 
@@ -119,7 +119,7 @@ namespace AntiCorruptionManagementSystem.Controllers
         {
             if (disposing)
             {
-                db.Dispose();
+                _db.Dispose();
             }
             base.Dispose(disposing);
         }
