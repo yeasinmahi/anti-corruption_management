@@ -24,9 +24,6 @@ namespace AntiCorruptionManagementSystem.Controllers
 
         public ActionResult InquiryProgressReportView(int? employeeId, int? wingId, int? sajekaId)
         {
-            int WingId = Convert.ToInt32(Request["wingId"]);
-            int SajekaId = Convert.ToInt32(Request["sajekaId"]);
-            int EmployeeId = Convert.ToInt32(Request["employeeId"]);
             ViewBag.WingId = new SelectList(_db.Wing, "Sl", "Name");
             ViewBag.SajekaId = new SelectList(_db.Sajeka, "Sl", "Name");
             ViewBag.EmployeeId = new SelectList(_db.Employee, "Sl", "Name");
@@ -160,8 +157,11 @@ namespace AntiCorruptionManagementSystem.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             InquiryWorkProgress inquiryWorkProgress = _db.InquiryWorkProgress.Find(id);
-            inquiryWorkProgress.IsActive = false;
-            _db.Entry(inquiryWorkProgress).State = EntityState.Modified;
+            if (inquiryWorkProgress != null)
+            {
+                inquiryWorkProgress.IsActive = false;
+                _db.Entry(inquiryWorkProgress).State = EntityState.Modified;
+            }
             _db.SaveChanges();
             return RedirectToAction("Index");
         }
