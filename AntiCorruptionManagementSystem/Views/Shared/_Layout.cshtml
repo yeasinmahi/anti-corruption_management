@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - Anti Corruption Management System</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
@@ -21,7 +21,7 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("উইং", "Index", "Wings")</li>
+                    @*<li>@Html.ActionLink("উইং", "Index", "Wings")</li>
                     <li>@Html.ActionLink("সজেকা", "Index", "Sajekas")</li>
                     <li>@Html.ActionLink("কর্মকর্তা", "Index", "Employees")</li>
                     <li>@Html.ActionLink("মামলা", "Index", "Cases")</li>
@@ -31,7 +31,45 @@
                     <li>@Html.ActionLink("অনুসন্ধান অনুবিভাগ", "Index", "InquiryWorkProgresses")</li>
                     <li>@Html.ActionLink("তদন্ত অনুবিভাগ", "Index", "InvestigationWorkProgresses")</li>
                     <li>@Html.ActionLink("তদন্ত অনুবিভাগ রিপোর্ট", "InvestigationProgressReport", "InvestigationWorkProgresses")</li>
-                    <li>@Html.ActionLink("অনুসন্ধান অনুবিভাগ রিপোর্ট", "InquiryProgressReport", "InquiryWorkProgresses")</li>
+                    <li>@Html.ActionLink("অনুসন্ধান অনুবিভাগ রিপোর্ট", "InquiryProgressReport", "InquiryWorkProgresses")</li>*@
+
+                    <li>
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">প্রাথমিক নিবন্ধন</a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("উইং নিবন্ধন", "Create", "Wings")</li>
+                            <li>@Html.ActionLink("উইং প্রতিবেদন", "Index", "Wings")</li>
+                            <li>@Html.ActionLink("সজেকা নিবন্ধন", "Create", "Sajekas")</li>
+                            <li>@Html.ActionLink("সজেকা প্রতিবেদন", "Index", "Sajekas")</li>
+                            <li>@Html.ActionLink("কর্মকর্তা নিবন্ধন", "Create", "Employees")</li>
+                            <li>@Html.ActionLink("কর্মকর্তা প্রতিবেদন", "Index", "Employees")</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">প্রধান নিবন্ধন</a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("মামলা নিবন্ধন", "Create", "Cases")</li>
+                            <li>@Html.ActionLink("মামলা প্রতিবেদন", "Index", "Cases")</li>
+                            <li>@Html.ActionLink("মামলার অভিযোগ নিবন্ধন", "Create", "CaseObjections")</li>
+                            <li>@Html.ActionLink("মামলার অভিযোগ প্রতিবেদন", "Index", "CaseObjections")</li>
+                            <li>@Html.ActionLink("তদন্তাধীন মামলার আসামি নিবন্ধন", "Create", "AccusedPersonInfoes")</li>
+                            <li>@Html.ActionLink("তদন্তাধীন মামলার আসামি প্রতিবেদন", "Index", "AccusedPersonInfoes")</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">কাজের অগ্রগতি</a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("অনুসন্ধান অনুবিভাগ", "Index", "InquiryWorkProgresses")</li>
+                            <li>@Html.ActionLink("তদন্ত অনুবিভাগ", "Index", "InvestigationWorkProgresses")</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">প্রতিবেদন</a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("অভিযোগকারীর তথ্য", "Index", "Accusers")</li>
+                            <li>@Html.ActionLink("তদন্ত অনুবিভাগ রিপোর্ট", "InvestigationProgressReport", "InvestigationWorkProgresses")</li>
+                            <li>@Html.ActionLink("অনুসন্ধান অনুবিভাগ রিপোর্ট", "InquiryProgressReport", "InquiryWorkProgresses")</li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </div>

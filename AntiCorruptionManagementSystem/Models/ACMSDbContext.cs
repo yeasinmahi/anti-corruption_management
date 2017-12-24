@@ -1,17 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace AntiCorruptionManagementSystem.Models
 {
-    public class ACMSDbContext : IdentityDbContext<ApplicationUser>
+    public class AcmsDbContext : IdentityDbContext<ApplicationUser>
     {
-        public ACMSDbContext():base("ACMSDbContext")
+        public AcmsDbContext():base("ACMSDbContext")
         {
-            Database.SetInitializer<ACMSDbContext>(null);
+            Database.SetInitializer<AcmsDbContext>(null);
             Configuration.ProxyCreationEnabled = true;
             Configuration.LazyLoadingEnabled = true;
         }

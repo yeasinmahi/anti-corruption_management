@@ -5,14 +5,14 @@ namespace AntiCorruptionManagementSystem.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<AntiCorruptionManagementSystem.Models.ACMSDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<AntiCorruptionManagementSystem.Models.AcmsDbContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(AntiCorruptionManagementSystem.Models.ACMSDbContext context)
+        protected override void Seed(AntiCorruptionManagementSystem.Models.AcmsDbContext context)
         {
             //  This method will be called after migrating to the latest version.
 

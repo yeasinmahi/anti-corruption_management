@@ -12,7 +12,7 @@ namespace AntiCorruptionManagementSystem.Controllers
 {
     public class AccusedPersonInfoesController : Controller
     {
-        private ACMSDbContext db = new ACMSDbContext();
+        private AcmsDbContext db = new AcmsDbContext();
 
         // GET: AccusedPersonInfoes
         public ActionResult Index()

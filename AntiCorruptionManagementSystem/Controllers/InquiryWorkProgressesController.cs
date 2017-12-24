@@ -12,7 +12,7 @@ namespace AntiCorruptionManagementSystem.Controllers
 {
     public class InquiryWorkProgressesController : Controller
     {
-        private ACMSDbContext db = new ACMSDbContext();
+        private AcmsDbContext db = new AcmsDbContext();
 
 
         public ActionResult InquiryProgressReport()
