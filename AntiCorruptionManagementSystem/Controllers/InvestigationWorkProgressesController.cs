@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using AntiCorruptionManagementSystem.Models;
 
@@ -24,9 +22,6 @@ namespace AntiCorruptionManagementSystem.Controllers
         }
         public ActionResult InvestigationProgressReportView(int? employeeId, int? wingId, int? sajekaId)
         {
-            int WingId = Convert.ToInt32(Request["wingId"]);
-            int SajekaId = Convert.ToInt32(Request["sajekaId"]);
-            int EmployeeId = Convert.ToInt32(Request["employeeId"]);
             ViewBag.WingId = new SelectList(_db.Wing, "Sl", "Name");
             ViewBag.SajekaId = new SelectList(_db.Sajeka, "Sl", "Name");
             ViewBag.EmployeeId = new SelectList(_db.Employee, "Sl", "Name");
