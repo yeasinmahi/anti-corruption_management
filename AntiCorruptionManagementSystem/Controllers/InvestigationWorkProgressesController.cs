@@ -157,8 +157,11 @@ namespace AntiCorruptionManagementSystem.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             InvestigationWorkProgress investigationWorkProgress = _db.InvestigationWorkProgress.Find(id);
-            investigationWorkProgress.IsActive = false;
-            _db.Entry(investigationWorkProgress).State = EntityState.Modified;
+            if (investigationWorkProgress != null)
+            {
+                investigationWorkProgress.IsActive = false;
+                _db.Entry(investigationWorkProgress).State = EntityState.Modified;
+            }
             _db.SaveChanges();
             return RedirectToAction("Index");
         }
