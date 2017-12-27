@@ -1,31 +1,92 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
+<center>
+    <h1>
+        <img class="img-responsive2" src="Resource/acc_logo.png"> দুর্নীতি দমন কমিশন
+    </h1>
+</center>
+<br />
+<div class="content-body">
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="row" style="margin-bottom: 10px;">
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
+                <div class="col-md-3 col-sm-5 col-xs-12">
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+                    <div class="r1_graph1 db_box" style="background:#FFA500">
+                        <center>
+                            <span class='pull-top' style="font-size:20px; color:white; margin-top:15px"><small>মোট উইং</small></span>
+                            <div class="clearfix" style="font-size:20px;color:white; margin-top:15px"> @ViewBag.TotalWing</div>
+                        </center>
+                    </div>
+                    <br />
+                    <div class="r1_graph1 db_box" style="background:#000000">
+                        <center>
+                            <span class='pull-top' style="font-size:20px; color:white; margin-top:15px"><small>মোট অফিসার</small></span>
+                            <div class="clearfix" style="font-size:20px;color:white; margin-top:15px"> @ViewBag.TotalEmployee</div>
+                        </center>
+                    </div>
+
+
+                </div>
+                <div class="col-md-3 col-sm-5 col-xs-12">
+
+
+                    <div class="r1_graph1 db_box" style="background:Navy">
+                        <center>
+                            <span class='pull-top' style="font-size:20px; color:white; margin-top:15px"><small>মোট সজেকা </small></span>
+                            <div class="clearfix" style="font-size:20px;color:white; margin-top:15px"> @ViewBag.TotalSajeka</div>
+                        </center>
+                    </div>
+                    <br />
+                    <div class="r1_graph1 db_box" style="background:#FF0000">
+                        <center>
+                            <span class='pull-top' style="font-size:20px; color:white; margin-top:15px"><small>মোট অভিযোগকারী</small></span>
+                            <div class="clearfix" style="font-size:20px;color:white; margin-top:15px"> @ViewBag.TotalAccuser</div>
+                        </center>
+                    </div>
+
+
+                </div>
+                <div class="col-md-3 col-sm-5 col-xs-12">
+
+
+
+                    <div class="r1_graph3 db_box" style="background:#4682b4">
+                        <center>
+                            <span class='pull-top' style="font-size:20px;color:white;  margin-top:15px"><small> মোট মামলা</small></span>
+                            <div class="clearfix" style="font-size:20px;color:white; margin-top:15px"> @ViewBag.Cases </div>
+                        </center>
+                    </div>
+                    <br />
+                    <div class="r1_graph1 db_box" style="background:#800000">
+                        <center>
+                            <span class='pull-top' style="font-size:20px; color:white; margin-top:15px"><small>মোট আসামী</small></span>
+                            <div class="clearfix" style="font-size:20px;color:white; margin-top:15px"> @ViewBag.TotalAccused</div>
+                        </center>
+                    </div>
+
+                </div>
+
+                <div class="col-md-3 col-sm-5 col-xs-12">
+
+
+                    <div class="r1_graph2 db_box" style="background:#FF6347">
+                        <center>
+                            <span class='pull-top' style="font-size:20px; color:white; margin-top:15px"><small>মোট মামলার অভিযোগ </small></span>
+                            <div class="clearfix" style="font-size:20px;color:white; margin-top:15px"> @ViewBag.CasesObjection</div>
+                        </center>
+                    </div>
+                    <br />
+                    <div class="r1_graph1 db_box" style="background:#228B22">
+                        <center>
+                            <span class='pull-top' style="font-size:20px; color:white; margin-top:15px"><small>বর্তমান সময় </small></span>
+                            <div class="clearfix" style="font-size:20px;color:white; margin-top:15px"> @ViewBag.Time</div>
+                        </center>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
